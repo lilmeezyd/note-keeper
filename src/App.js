@@ -5,8 +5,8 @@ import Header from './components/Header.js'
 import Notes from './components/Notes.js'
 import Footer from './components/Footer.js'
 import AddNote from './components/AddNote.js'
+import Modal from './components/Modal.js'
 import EditNote from './components/EditNote.js'
-import Options from './components/Options.js'
 import {notez} from './notes.json'
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
 	const [ showOptions, setShowOptions ] = useState(false)
 	const [ showEditNote, setShowEditNote ] = useState(false)
 	const [ showFooter, setShowFooter ] = useState(true)
+    const [ showModal, setShowModal ] = useState(false) 
 	const [ notes, setNotes ] = useState([])
 	const [ note, setNoti ] = useState([])
 
@@ -26,6 +27,7 @@ const App = () => {
 
 		getNotes()
 	}, [])
+
 
 	const onSearch = (searchWord) => {
 		const filteredNotes = notez.filter(({ title }) => (title.toLowerCase()).includes(searchWord.toLowerCase()))
@@ -69,6 +71,7 @@ const App = () => {
 	}
 
 	const showAdd = () => setShowEditNote(true)
+	const modalFunc = () => setShowModal(true)
 
 
     
@@ -81,9 +84,10 @@ const App = () => {
 				<>
 					<Header onSearch={onSearch} />
 					{ 
-						notes.length > 0 ? (<Notes notes={notes} showAdd={showAdd} setNote={setNote} onDelete={onDelete} />) : 
+						notes.length > 0 ? (<Notes notes={notes} showAdd={showAdd} modalFunc={modalFunc} setNote={setNote} onDelete={onDelete} />) : 
 						( <h6>No Notes Found</h6>)}
 					{showFooter && <Footer onClick={() => setShowAddNote(true)} disable={showOptions ? true : false} />}
+        			{showModal && <Modal  onClick={() => setShowModal(false)} deleteNote={note} onDelete={onDelete} />}
 				</>
 			)}
 			

@@ -3,11 +3,11 @@ import Note from './Note'
 
 
 
-const Notes = ({ notes, onDelete, setNote, showAdd }) => {
+const Notes = ({ notes, setNote, showAdd, modalFunc }) => {
 
  
     const notesList = notes.map(note => <Note 
-        key={note.id} note={note} showAdd={showAdd} setNote={setNote} onDelete={onDelete}  />)
+        key={note.id} note={note} showAdd={showAdd} modalFunc={modalFunc} setNote={setNote} />)
     return (
         <div className="note">
             {notesList}

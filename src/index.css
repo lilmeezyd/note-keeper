@@ -23,6 +23,43 @@ h4, p {
   	font-weight: normal;
   	font-family: 'Montserrat', 'Arial', sans-serif;
   }
+  .modalOver {
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  	position: absolute;
+  	z-index: 1;
+  	background-color: rgba(0, 0, 0, 0.1);
+  }
+  .modal {
+  	width: 300px;
+  	border: 1px solid rgba(0, 0, 0, 0.1);
+  	background-color: whitesmoke;
+  	padding: 1rem;
+  	position: absolute;
+  	z-index: 2;
+  	left: 50%;
+  	top: 25%;
+  	transform: translateY(-75%);
+  	transform: translateX(-50%);
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	align-items: center;
+  	row-gap: 6px;
+  }
+  .modal h4 {
+  	padding: 0;
+  	margin: 0;
+  }
+  .buttons {
+  	display: flex;
+  	justify-content: space-between;
+  	align-items: center;
+  	width: 100%;
+  	padding: 0.5rem;
+  }
 
   .btn-back {
   	cursor: pointer;

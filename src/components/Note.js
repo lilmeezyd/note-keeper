@@ -2,7 +2,7 @@ import React from 'react'
 import Modifier from './Modifier'
 import { useState } from 'react'
 
-const Note = ({ note: { title, note, id, created, edited }, onDelete, setNote, showAdd }) => {
+const Note = ({ note: { title, note, id, created, edited }, setNote, showAdd, modalFunc }) => {
 
 
     const [ deleteOn, setDeleteOn ] = useState(false)
@@ -30,7 +30,7 @@ const Note = ({ note: { title, note, id, created, edited }, onDelete, setNote, s
                     <p>{editDate}</p>
                 </div>)}
         </div>
-        {showModifier && <Modifier showAdd={showAdd} setNote={() => {setNote(id)}} onDelete={() => {onDelete(id)}}/>}
+        {showModifier && <Modifier showAdd={showAdd} modalFunc={modalFunc} setNote={() => {setNote(id)}}/>}
         </div>
     )
 }
